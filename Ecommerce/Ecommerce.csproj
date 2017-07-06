@@ -45,6 +45,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -52,6 +60,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -142,16 +152,182 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer_Payment_Methods.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Invoices.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order_Items.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payments.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Products.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product_Image.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ref_Invoice_Status_Codes.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ref_Order_Item_Status_Codes.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ref_Order_Status_Codes.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ref_Payment_Methods.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ref_Product_Type.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Shipments.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryRep.cs" />
+    <Compile Include="Repositories\ICategoryRep.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\component.css" />
     <Content Include="Content\flexslider.css" />
+    <Content Include="Content\Images\00001.jpg" />
+    <Content Include="Content\Images\00002.jpg" />
+    <Content Include="Content\Images\00003.jpg" />
+    <Content Include="Content\Images\00004.jpg" />
+    <Content Include="Content\Images\00005.jpg" />
+    <Content Include="Content\Images\00006.jpg" />
+    <Content Include="Content\Images\00007.jpg" />
+    <Content Include="Content\Images\00008.jpg" />
+    <Content Include="Content\Images\00009.jpg" />
+    <Content Include="Content\Images\00010.jpg" />
+    <Content Include="Content\Images\00011.jpg" />
+    <Content Include="Content\Images\00012.jpg" />
+    <Content Include="Content\Images\00013.jpg" />
+    <Content Include="Content\Images\00014.jpg" />
+    <Content Include="Content\Images\00015.jpg" />
+    <Content Include="Content\Images\00016.jpg" />
+    <Content Include="Content\Images\00017.jpg" />
+    <Content Include="Content\Images\00018.jpg" />
+    <Content Include="Content\Images\00019.jpg" />
+    <Content Include="Content\Images\00020.jpg" />
+    <Content Include="Content\Images\00021.jpg" />
+    <Content Include="Content\Images\00022.jpg" />
+    <Content Include="Content\Images\00023.jpg" />
+    <Content Include="Content\Images\00024.jpg" />
+    <Content Include="Content\Images\00025.jpg" />
+    <Content Include="Content\Images\00026.jpg" />
+    <Content Include="Content\Images\00027.jpg" />
+    <Content Include="Content\Images\00028.jpg" />
+    <Content Include="Content\Images\00029.jpg" />
+    <Content Include="Content\Images\00030.jpg" />
+    <Content Include="Content\Images\00031.jpg" />
+    <Content Include="Content\Images\00032.jpg" />
+    <Content Include="Content\Images\00033.jpg" />
+    <Content Include="Content\Images\00034.jpg" />
+    <Content Include="Content\Images\00035.jpg" />
+    <Content Include="Content\Images\00036.jpg" />
+    <Content Include="Content\Images\00037.jpg" />
+    <Content Include="Content\Images\00038.jpg" />
+    <Content Include="Content\Images\00039.jpg" />
+    <Content Include="Content\Images\00040.jpg" />
+    <Content Include="Content\Images\00041.jpg" />
+    <Content Include="Content\Images\00042.jpg" />
+    <Content Include="Content\Images\00043.jpg" />
+    <Content Include="Content\Images\00044.jpg" />
+    <Content Include="Content\Images\00045.jpg" />
+    <Content Include="Content\Images\00046.jpg" />
+    <Content Include="Content\Images\00047.jpg" />
+    <Content Include="Content\Images\00048.jpg" />
+    <Content Include="Content\Images\00049.jpg" />
+    <Content Include="Content\Images\00050.jpg" />
+    <Content Include="Content\Images\00051.jpg" />
+    <Content Include="Content\Images\00052.jpg" />
+    <Content Include="Content\Images\00053.jpg" />
+    <Content Include="Content\Images\00054.jpg" />
+    <Content Include="Content\Images\00055.jpg" />
+    <Content Include="Content\Images\00056.jpg" />
+    <Content Include="Content\Images\00057.jpg" />
+    <Content Include="Content\Images\00058.jpg" />
+    <Content Include="Content\Images\00059.jpg" />
+    <Content Include="Content\Images\00060.jpg" />
+    <Content Include="Content\Images\00061.jpg" />
+    <Content Include="Content\Images\00062.jpg" />
+    <Content Include="Content\Images\00063.jpg" />
+    <Content Include="Content\Images\00064.jpg" />
+    <Content Include="Content\Images\00065.jpg" />
+    <Content Include="Content\Images\00066.jpg" />
+    <Content Include="Content\Images\00067.jpg" />
+    <Content Include="Content\Images\00068.jpg" />
+    <Content Include="Content\Images\00069.jpg" />
+    <Content Include="Content\Images\00070.jpg" />
+    <Content Include="Content\Images\00071.jpg" />
+    <Content Include="Content\Images\00072.jpg" />
+    <Content Include="Content\Images\00073.jpg" />
+    <Content Include="Content\Images\00074.jpg" />
+    <Content Include="Content\Images\00075.jpg" />
+    <Content Include="Content\Images\00076.jpg" />
+    <Content Include="Content\Images\00077.jpg" />
+    <Content Include="Content\Images\00078.jpg" />
+    <Content Include="Content\Images\00079.jpg" />
+    <Content Include="Content\Images\00080.jpg" />
+    <Content Include="Content\Images\00081.jpg" />
+    <Content Include="Content\Images\00082.jpg" />
+    <Content Include="Content\Images\00083.jpg" />
+    <Content Include="Content\Images\00084.jpg" />
+    <Content Include="Content\Images\00085.jpg" />
+    <Content Include="Content\Images\00086.jpg" />
+    <Content Include="Content\Images\00087.jpg" />
+    <Content Include="Content\Images\00088.jpg" />
+    <Content Include="Content\Images\00089.jpg" />
+    <Content Include="Content\Images\00090.jpg" />
+    <Content Include="Content\Images\00091.jpg" />
+    <Content Include="Content\Images\00092.jpg" />
+    <Content Include="Content\Images\00093.jpg" />
+    <Content Include="Content\Images\00094.jpg" />
+    <Content Include="Content\Images\00095.jpg" />
+    <Content Include="Content\Images\00096.jpg" />
+    <Content Include="Content\Images\00097.jpg" />
+    <Content Include="Content\Images\00098.jpg" />
+    <Content Include="Content\Images\00099.jpg" />
+    <Content Include="Content\Images\00100.jpg" />
+    <Content Include="Content\Images\00101.jpg" />
+    <Content Include="Content\Images\00102.jpg" />
+    <Content Include="Content\Images\00103.jpg" />
+    <Content Include="Content\Images\00104.jpg" />
+    <Content Include="Content\Images\00105.jpg" />
     <Content Include="Content\Images\arrow2.gif" />
     <Content Include="Content\Images\bag.png" />
     <Content Include="Content\Images\banner_img.jpg" />
@@ -161,32 +337,25 @@
     <Content Include="Content\Images\follow.png" />
     <Content Include="Content\Images\grid_view.png" />
     <Content Include="Content\Images\icon1.png" />
-    <Content Include="Content\Images\l1.jpg" />
-    <Content Include="Content\Images\l2.jpg" />
-    <Content Include="Content\Images\l3.jpg" />
-    <Content Include="Content\Images\l4.jpg" />
-    <Content Include="Content\Images\l5.jpg" />
     <Content Include="Content\Images\list_view.png" />
-    <Content Include="Content\Images\p1.jpg" />
-    <Content Include="Content\Images\p2.jpg" />
-    <Content Include="Content\Images\p3.jpg" />
-    <Content Include="Content\Images\p4.jpg" />
-    <Content Include="Content\Images\p5.jpg" />
-    <Content Include="Content\Images\p6.jpg" />
-    <Content Include="Content\Images\p7.jpg" />
-    <Content Include="Content\Images\p8.jpg" />
-    <Content Include="Content\Images\p9.jpg" />
     <Content Include="Content\Images\s-icons.png" />
     <Content Include="Content\Images\shipping.png" />
-    <Content Include="Content\Images\si.jpg" />
-    <Content Include="Content\Images\si1.jpg" />
-    <Content Include="Content\Images\si2.jpg" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap-3.1.1.min.js" />
     <Content Include="Scripts\cbpViewModeSwitch.js" />
@@ -212,7 +381,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -241,9 +410,6 @@
     <Content Include="Views\Home\_Banner.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\_LatestProducts.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home\_FeaturedCollections.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +429,32 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Single.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Menu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Products.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Products.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SubLayout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
