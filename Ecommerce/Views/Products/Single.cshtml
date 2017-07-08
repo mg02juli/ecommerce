@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Single";
+    Layout = "~/Views/Shared/SubLayout.cshtml";
+
+
+}
+
+<div class="new-product">
+    <div class="col-md-5 zoom-grid">
+        <div class="flexslider">
+            <ul class="slides">
+                @foreach (var image in ViewBag.product[0].Product_Image)
+                {
+                    <li data-thumb="@Url.Content(@image.image_url)">
+                        <div class="thumb-image"> <img src="@Url.Content(@image.image_url)" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="col-md-7 dress-info">
+        <div class="dress-name">
+            <h3>@ViewBag.product[0].product_name</h3>
+            <span>$@ViewBag.product[0].product_price</span>
+            <div class="clearfix"></div>
+            <p>@ViewBag.product[0].product_description</p>
+        </div>
+        <div class="span span1">
+            <p class="left">SIZE</p>
+            <p class="right">@ViewBag.product[0].product_size</p>
+            <div class="clearfix"></div>
+        </div>
+        <div class="span span2">
+            <p class="left">COLOR</p>
+            <p class="right">White</p>
+            <div class="clearfix"></div>
+        </div>
+
+
+        <div class="purchase">
+            <a href="#">Purchase Now</a>
+            <div class="clearfix"></div>
+            <div class="social-icons">
+                <ul>
+                    <li><a class="facebook1" href="#"></a></li>
+                    <li><a class="twitter1" href="#"></a></li>
+                    <li><a class="googleplus1" href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="@Url.Content("~/Scripts/")imagezoom.js"></script>
+<script src="@Url.Content("~/Scripts/")jquery.flexslider.js"></script>
+<script src="@Url.Content("~/Scripts/")responsive-tabs.js"></script>
+
+
+<script type="text/javascript">
+    $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+
+    $('#moreTabs a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+
+    (function ($) {
+        // Test for making sure event are maintained
+        $('.js-alert-test').click(function () {
+            alert('Button Clicked: Event was maintained');
+        });
+        fakewaffle.responsiveTabs(['xs', 'sm']);
+    })(jQuery);
+
+</script>
+
+<script>
+    // Can also be used with $(document).ready()
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails"
+        });
+    });
+</script>
+

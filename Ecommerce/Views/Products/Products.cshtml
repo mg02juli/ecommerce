@@ -72,9 +72,9 @@
                     @foreach (var product in ViewBag.products)
                     {
                         <li>
-                            <a class="cbp-vm-image" href="@Url.Action("Single","Home")">
+                            <a class="cbp-vm-image" href="@Url.Action("Single","Products", new {id = product.product_id })">
                             </a><div class="simpleCart_shelfItem">
-                                <a class="cbp-vm-image" href="@Url.Action("Single","Home")">
+                                <a class="cbp-vm-image" href="@Url.Action("Single","Products", new {id = product.product_id })">
                                     <div class="view view-first">
                                         <div class="inner_content clearfix">
                                             <div class="product_image">

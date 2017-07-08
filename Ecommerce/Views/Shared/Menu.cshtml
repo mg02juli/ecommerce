@@ -37,7 +37,7 @@
                                                         foreach (var level3 in level2.Ref_Product_Type1)
                                                         {
                                                             <li>
-                                                                <a href="@Url.Action("Products","Home",new { id= level3.product_type_code})">
+                                                                <a href="@Url.Action("Products","Products",new { id= level3.product_type_code})">
                                                                     @level3.product_type_description
                                                                 </a>
                                                             </li>

@@ -3,21 +3,19 @@
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
+@model Ecommerce.Models.Customer
 
 <div class="registration-form">
     <div class="container">
         <div class="dreamcrub">
             <ul class="breadcrumbs">
                 <li class="home">
-                    <a href="index.html" title="Go to Home Page">Home</a>&nbsp;
+                    <a href="@Url.Action("Index","Home")" title="Go to Home Page">Home</a>&nbsp;
                     <span>&gt;</span>
                 </li>
                 <li class="women">
                     Registration
                 </li>
-            </ul>
-            <ul class="previous">
-                <li><a href="index.html">Back to Previous Page</a></li>
             </ul>
             <div class="clearfix"></div>
         </div>
@@ -26,35 +24,80 @@
             <div class="reg-form">
                 <div class="reg">
                     <p>Welcome, please enter the following details to continue.</p>
-                    <p>If you have previously registered with us, <a href="#">click here</a></p>
-                    <form>
+                    <p>If you have previously registered with us, <a href="@Url.Action("Index","Home")">click here</a></p>
+                    @using (Html.BeginForm("Register", "User", FormMethod.Post))
+                    {
                         <ul>
                             <li class="text-info">First Name: </li>
-                            <li><input type="text" value=""></li>
+                            <li class="text-info">
+                                @Html.ValidationMessageFor(a => a.first_name, null, new { style = "color:red" })
+                                </li>
+<li>
+                                @Html.TextBoxFor(model => model.first_name)
+                            </li>
                         </ul>
                         <ul>
                             <li class="text-info">Last Name: </li>
-                            <li><input type="text" value=""></li>
+                            <li class="text-info">
+                                @Html.ValidationMessageFor(a => a.last_name, null, new { style = "color:red" })
+                                </li>
+<li>
+                                @Html.TextBoxFor(model => model.last_name)
+                            </li>
                         </ul>
                         <ul>
                             <li class="text-info">Email: </li>
-                            <li><input type="text" value=""></li>
+                            <li class="text-info">
+                                @Html.ValidationMessageFor(a => a.name, null, new { style = "color:red" })
+                                </li>
+<li>
+                                @Html.TextBoxFor(model => model.name)
+                            </li>
                         </ul>
                         <ul>
-                            <li class="text-info">Password: </li>
-                            <li><input type="password" value=""></li>
+                            <li class="text-info">Phone number:</li>
+                                <li class="text-info">
+                                    @Html.ValidationMessageFor(a => a.phone_number, null, new { style = "color:red" })
+                                </li>
+                            <li>
+                                @Html.TextBoxFor(model => model.phone_number)
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Password: </li>\
+                            <li class="text-info">
+                                @Html.ValidationMessageFor(a => a.password, null, new { style = "color:red" })
+                                </li>
+<li>
+                                @Html.PasswordFor(model => model.password)
+                            </li>
                         </ul>
                         <ul>
                             <li class="text-info">Re-enter Password:</li>
-                            <li><input type="password" value=""></li>
+                            <li class="text-info">
+                                @Html.ValidationMessageFor(a => a.cnf_password, null, new { style = "color:red" })
+                            </li>
+                            <li>
+                                @Html.PasswordFor(model => model.cnf_password)
+                            </li>
                         </ul>
+
                         <ul>
-                            <li class="text-info">Mobile Number:</li>
-                            <li><input type="text" value=""></li>
+                            <li class="text-info">Home address</li>
+                            <li class="text-info">
+                                @Html.ValidationMessageFor(a => a.address_line_1, null, new { style = "color:red" })
+</li>
+                            <li>
+                                @Html.TextBoxFor(model => model.address_line_1)
+                            </li>
                         </ul>
+
+
                         <input type="submit" value="REGISTER NOW">
                         <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p>
-                    </form>
+                    }
+
+
                 </div>
             </div>
             <div class="reg-right">

@@ -9,23 +9,19 @@
           <Key>
             <PropertyRef Name="customer_id" />
           </Key>
-          <Property Name="customer_id" Type="int" Nullable="false" />
+          <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="first_name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="phone_number" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="phone_number" Type="nvarchar" MaxLength="50" />
           <Property Name="address_line_1" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="address_line_2" Type="nvarchar(max)" />
-          <Property Name="city" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="country" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="zip_code" Type="numeric" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="Customer_Payment_Methods">
           <Key>
             <PropertyRef Name="customer_payment_id" />
           </Key>
-          <Property Name="customer_payment_id" Type="int" Nullable="false" />
+          <Property Name="customer_payment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="customer_id" Type="int" Nullable="false" />
           <Property Name="payment_method_code" Type="tinyint" Nullable="false" />
         </EntityType>
@@ -33,7 +29,7 @@
           <Key>
             <PropertyRef Name="invoice_number" />
           </Key>
-          <Property Name="invoice_number" Type="int" Nullable="false" />
+          <Property Name="invoice_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="order_id" Type="int" Nullable="false" />
           <Property Name="invoice_status_code" Type="tinyint" Nullable="false" />
           <Property Name="invoice_date" Type="date" Nullable="false" />
@@ -43,7 +39,7 @@
           <Key>
             <PropertyRef Name="order_id" />
           </Key>
-          <Property Name="order_id" Type="int" Nullable="false" />
+          <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="customer_id" Type="int" Nullable="false" />
           <Property Name="order_status_code" Type="tinyint" Nullable="false" />
           <Property Name="date_order_placed" Type="date" Nullable="false" />
@@ -53,7 +49,7 @@
           <Key>
             <PropertyRef Name="order_items_id" />
           </Key>
-          <Property Name="order_items_id" Type="int" Nullable="false" />
+          <Property Name="order_items_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="product_id" Type="int" Nullable="false" />
           <Property Name="order_id" Type="int" Nullable="false" />
           <Property Name="order_item_status_code" Type="tinyint" Nullable="false" />
@@ -64,7 +60,7 @@
           <Key>
             <PropertyRef Name="payment_id" />
           </Key>
-          <Property Name="payment_id" Type="int" Nullable="false" />
+          <Property Name="payment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="invoice_number" Type="int" Nullable="false" />
           <Property Name="payment_date" Type="date" Nullable="false" />
           <Property Name="payment_amount" Type="money" Nullable="false" />
@@ -73,7 +69,7 @@
           <Key>
             <PropertyRef Name="image_id" />
           </Key>
-          <Property Name="image_id" Type="int" Nullable="false" />
+          <Property Name="image_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="product_id" Type="int" Nullable="false" />
           <Property Name="image_url" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -81,7 +77,7 @@
           <Key>
             <PropertyRef Name="product_id" />
           </Key>
-          <Property Name="product_id" Type="int" Nullable="false" />
+          <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="product_type_code" Type="tinyint" Nullable="false" />
           <Property Name="product_name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="product_price" Type="money" Nullable="false" />
@@ -94,35 +90,35 @@
           <Key>
             <PropertyRef Name="invoice_status_code" />
           </Key>
-          <Property Name="invoice_status_code" Type="tinyint" Nullable="false" />
+          <Property Name="invoice_status_code" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="invoice_status_description" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Ref_Order_Item_Status_Codes">
           <Key>
             <PropertyRef Name="order_item_status_code" />
           </Key>
-          <Property Name="order_item_status_code" Type="tinyint" Nullable="false" />
+          <Property Name="order_item_status_code" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="order_item_status_description" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Ref_Order_Status_Codes">
           <Key>
             <PropertyRef Name="order_status_code" />
           </Key>
-          <Property Name="order_status_code" Type="tinyint" Nullable="false" />
+          <Property Name="order_status_code" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="order_status_description" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Ref_Payment_Methods">
           <Key>
             <PropertyRef Name="payment_method_code" />
           </Key>
-          <Property Name="payment_method_code" Type="tinyint" Nullable="false" />
+          <Property Name="payment_method_code" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="payment_method_description" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Ref_Product_Type">
           <Key>
             <PropertyRef Name="product_type_code" />
           </Key>
-          <Property Name="product_type_code" Type="tinyint" Nullable="false" />
+          <Property Name="product_type_code" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="product_parent_type_code" Type="tinyint" />
           <Property Name="product_type_description" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -140,7 +136,7 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
           <Key>
             <PropertyRef Name="shipment_id" />
           </Key>
-          <Property Name="shipment_id" Type="int" Nullable="false" />
+          <Property Name="shipment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="order_id" Type="int" Nullable="false" />
           <Property Name="invoice_number" Type="int" Nullable="false" />
           <Property Name="shipment_tracking_number" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -429,24 +425,6 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WEBprojectDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="customer_id" />
-          </Key>
-          <Property Name="customer_id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="phone_number" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="address_line_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="address_line_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="zip_code" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <NavigationProperty Name="Customer_Payment_Methods" Relationship="Self.FK_Customer_Payment_Methods_Customer" FromRole="Customer" ToRole="Customer_Payment_Methods" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
-        </EntityType>
         <EntityType Name="Customer_Payment_Methods">
           <Key>
             <PropertyRef Name="customer_payment_id" />
@@ -454,8 +432,8 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
           <Property Name="customer_payment_id" Type="Int32" Nullable="false" />
           <Property Name="customer_id" Type="Int32" Nullable="false" />
           <Property Name="payment_method_code" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_Customer_Payment_Methods_Customer" FromRole="Customer_Payment_Methods" ToRole="Customer" />
           <NavigationProperty Name="Ref_Payment_Methods" Relationship="Self.FK_Customer_Payment_Methods_Ref_Payment_Methods" FromRole="Customer_Payment_Methods" ToRole="Ref_Payment_Methods" />
+          <NavigationProperty Name="Customer" Relationship="WEBprojectDBModel.FK_Customer_Payment_Methods_Customer" FromRole="Customer_Payment_Methods" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Invoices">
           <Key>
@@ -479,11 +457,11 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
           <Property Name="order_status_code" Type="Byte" Nullable="false" />
           <Property Name="date_order_placed" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="order_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
           <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_Order" FromRole="Order" ToRole="Invoices" />
           <NavigationProperty Name="Order_Items" Relationship="Self.FK_Order_Items_Order" FromRole="Order" ToRole="Order_Items" />
           <NavigationProperty Name="Ref_Order_Status_Codes" Relationship="Self.FK_Order_Ref_Order_Status_Codes" FromRole="Order" ToRole="Ref_Order_Status_Codes" />
           <NavigationProperty Name="Shipments" Relationship="Self.FK_Shipments_Order" FromRole="Order" ToRole="Shipments" />
+          <NavigationProperty Name="Customer" Relationship="WEBprojectDBModel.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Order_Items">
           <Key>
@@ -496,9 +474,9 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
           <Property Name="order_item_quantity" Type="Byte" Nullable="false" />
           <Property Name="order_item_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Items_Order" FromRole="Order_Items" ToRole="Order" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Order_Items_Products" FromRole="Order_Items" ToRole="Products" />
           <NavigationProperty Name="Ref_Order_Item_Status_Codes" Relationship="Self.FK_Order_Items_Ref_Order_Item_Status_Codes" FromRole="Order_Items" ToRole="Ref_Order_Item_Status_Codes" />
           <NavigationProperty Name="Shipments" Relationship="Self.Shipment_Items" FromRole="Order_Items" ToRole="Shipments" />
-          <NavigationProperty Name="Products" Relationship="WEBprojectDBModel.FK_Order_Items_Products" FromRole="Order_Items" ToRole="Products" />
         </EntityType>
         <EntityType Name="Payments">
           <Key>
@@ -509,6 +487,31 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
           <Property Name="payment_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="payment_amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="Invoices" Relationship="Self.FK_Payments_Invoices" FromRole="Payments" ToRole="Invoices" />
+        </EntityType>
+        <EntityType Name="Product_Image">
+          <Key>
+            <PropertyRef Name="image_id" />
+          </Key>
+          <Property Name="image_id" Type="Int32" Nullable="false" />
+          <Property Name="product_id" Type="Int32" Nullable="false" />
+          <Property Name="image_url" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Image_Products" FromRole="Product_Image" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="Int32" Nullable="false" />
+          <Property Name="product_type_code" Type="Byte" Nullable="false" />
+          <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="product_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="product_size" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="product_color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="special_offer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Order_Items" Relationship="Self.FK_Order_Items_Products" FromRole="Products" ToRole="Order_Items" />
+          <NavigationProperty Name="Product_Image" Relationship="Self.FK_Product_Image_Products" FromRole="Products" ToRole="Product_Image" />
+          <NavigationProperty Name="Ref_Product_Type" Relationship="Self.FK_Products_Ref_Product_Type" FromRole="Products" ToRole="Ref_Product_Type" />
         </EntityType>
         <EntityType Name="Ref_Invoice_Status_Codes">
           <Key>
@@ -542,6 +545,17 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
           <Property Name="payment_method_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Customer_Payment_Methods" Relationship="Self.FK_Customer_Payment_Methods_Ref_Payment_Methods" FromRole="Ref_Payment_Methods" ToRole="Customer_Payment_Methods" />
         </EntityType>
+        <EntityType Name="Ref_Product_Type">
+          <Key>
+            <PropertyRef Name="product_type_code" />
+          </Key>
+          <Property Name="product_type_code" Type="Byte" Nullable="false" />
+          <Property Name="product_parent_type_code" Type="Byte" />
+          <Property Name="product_type_description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Ref_Product_Type" FromRole="Ref_Product_Type" ToRole="Products" />
+          <NavigationProperty Name="Ref_Product_Type1" Relationship="Self.FK_Ref_Product_Type_Ref_Product_Type" FromRole="Ref_Product_Type" ToRole="Ref_Product_Type1" />
+          <NavigationProperty Name="Ref_Product_Type2" Relationship="Self.FK_Ref_Product_Type_Ref_Product_Type" FromRole="Ref_Product_Type1" ToRole="Ref_Product_Type" />
+        </EntityType>
         <EntityType Name="Shipments">
           <Key>
             <PropertyRef Name="shipment_id" />
@@ -555,30 +569,6 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
           <NavigationProperty Name="Order" Relationship="Self.FK_Shipments_Order" FromRole="Shipments" ToRole="Order" />
           <NavigationProperty Name="Order_Items" Relationship="Self.Shipment_Items" FromRole="Shipments" ToRole="Order_Items" />
         </EntityType>
-        <Association Name="FK_Customer_Payment_Methods_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="Customer_Payment_Methods" Type="Self.Customer_Payment_Methods" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="customer_id" />
-            </Principal>
-            <Dependent Role="Customer_Payment_Methods">
-              <PropertyRef Name="customer_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Order_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="customer_id" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="customer_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Customer_Payment_Methods_Ref_Payment_Methods">
           <End Role="Ref_Payment_Methods" Type="Self.Ref_Payment_Methods" Multiplicity="1" />
           <End Role="Customer_Payment_Methods" Type="Self.Customer_Payment_Methods" Multiplicity="*" />
@@ -663,6 +653,18 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Order_Items_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Order_Items" Type="Self.Order_Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="Order_Items">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Order_Items_Ref_Order_Item_Status_Codes">
           <End Role="Ref_Order_Item_Status_Codes" Type="Self.Ref_Order_Item_Status_Codes" Multiplicity="1" />
           <End Role="Order_Items" Type="Self.Order_Items" Multiplicity="*" />
@@ -675,30 +677,60 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_Image_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Product_Image" Type="Self.Product_Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="Product_Image">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Ref_Product_Type">
+          <End Role="Ref_Product_Type" Type="Self.Ref_Product_Type" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ref_Product_Type">
+              <PropertyRef Name="product_type_code" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="product_type_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ref_Product_Type_Ref_Product_Type">
+          <End Role="Ref_Product_Type" Type="Self.Ref_Product_Type" Multiplicity="0..1" />
+          <End Role="Ref_Product_Type1" Type="Self.Ref_Product_Type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ref_Product_Type">
+              <PropertyRef Name="product_type_code" />
+            </Principal>
+            <Dependent Role="Ref_Product_Type1">
+              <PropertyRef Name="product_parent_type_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Shipment_Items">
           <End Role="Order_Items" Type="Self.Order_Items" Multiplicity="*" />
           <End Role="Shipments" Type="Self.Shipments" Multiplicity="*" />
         </Association>
         <EntityContainer Name="WEBprojectDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Customer" EntityType="Self.Customer" />
           <EntitySet Name="Customer_Payment_Methods" EntityType="Self.Customer_Payment_Methods" />
           <EntitySet Name="Invoices" EntityType="Self.Invoices" />
           <EntitySet Name="Order" EntityType="Self.Order" />
           <EntitySet Name="Order_Items" EntityType="Self.Order_Items" />
           <EntitySet Name="Payments" EntityType="Self.Payments" />
+          <EntitySet Name="Product_Image" EntityType="Self.Product_Image" />
+          <EntitySet Name="Products" EntityType="Self.Products" />
           <EntitySet Name="Ref_Invoice_Status_Codes" EntityType="Self.Ref_Invoice_Status_Codes" />
           <EntitySet Name="Ref_Order_Item_Status_Codes" EntityType="Self.Ref_Order_Item_Status_Codes" />
           <EntitySet Name="Ref_Order_Status_Codes" EntityType="Self.Ref_Order_Status_Codes" />
           <EntitySet Name="Ref_Payment_Methods" EntityType="Self.Ref_Payment_Methods" />
+          <EntitySet Name="Ref_Product_Type" EntityType="Self.Ref_Product_Type" />
           <EntitySet Name="Shipments" EntityType="Self.Shipments" />
-          <AssociationSet Name="FK_Customer_Payment_Methods_Customer" Association="Self.FK_Customer_Payment_Methods_Customer">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="Customer_Payment_Methods" EntitySet="Customer_Payment_Methods" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
           <AssociationSet Name="FK_Customer_Payment_Methods_Ref_Payment_Methods" Association="Self.FK_Customer_Payment_Methods_Ref_Payment_Methods">
             <End Role="Ref_Payment_Methods" EntitySet="Ref_Payment_Methods" />
             <End Role="Customer_Payment_Methods" EntitySet="Customer_Payment_Methods" />
@@ -727,141 +759,84 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
             <End Role="Order" EntitySet="Order" />
             <End Role="Shipments" EntitySet="Shipments" />
           </AssociationSet>
+          <AssociationSet Name="FK_Order_Items_Products" Association="Self.FK_Order_Items_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Order_Items" EntitySet="Order_Items" />
+          </AssociationSet>
           <AssociationSet Name="FK_Order_Items_Ref_Order_Item_Status_Codes" Association="Self.FK_Order_Items_Ref_Order_Item_Status_Codes">
             <End Role="Ref_Order_Item_Status_Codes" EntitySet="Ref_Order_Item_Status_Codes" />
             <End Role="Order_Items" EntitySet="Order_Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Image_Products" Association="Self.FK_Product_Image_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Product_Image" EntitySet="Product_Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Ref_Product_Type" Association="Self.FK_Products_Ref_Product_Type">
+            <End Role="Ref_Product_Type" EntitySet="Ref_Product_Type" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ref_Product_Type_Ref_Product_Type" Association="Self.FK_Ref_Product_Type_Ref_Product_Type">
+            <End Role="Ref_Product_Type" EntitySet="Ref_Product_Type" />
+            <End Role="Ref_Product_Type1" EntitySet="Ref_Product_Type" />
           </AssociationSet>
           <AssociationSet Name="Shipment_Items" Association="Self.Shipment_Items">
             <End Role="Order_Items" EntitySet="Order_Items" />
             <End Role="Shipments" EntitySet="Shipments" />
           </AssociationSet>
-          <EntitySet Name="Ref_Product_Type" EntityType="WEBprojectDBModel.Ref_Product_Type" />
-          <AssociationSet Name="FK_Ref_Product_Type_Ref_Product_Type" Association="WEBprojectDBModel.FK_Ref_Product_Type_Ref_Product_Type">
-            <End Role="Ref_Product_Type" EntitySet="Ref_Product_Type" />
-            <End Role="Ref_Product_Type1" EntitySet="Ref_Product_Type" />
+          <EntitySet Name="Customer" EntityType="WEBprojectDBModel.Customer" />
+          <AssociationSet Name="FK_Customer_Payment_Methods_Customer" Association="WEBprojectDBModel.FK_Customer_Payment_Methods_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Customer_Payment_Methods" EntitySet="Customer_Payment_Methods" />
           </AssociationSet>
-          <EntitySet Name="Product_Image" EntityType="WEBprojectDBModel.Product_Image" />
-          <EntitySet Name="Products" EntityType="WEBprojectDBModel.Products" />
-          <AssociationSet Name="FK_Order_Items_Products" Association="WEBprojectDBModel.FK_Order_Items_Products">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="Order_Items" EntitySet="Order_Items" />
+          <AssociationSet Name="FK_Order_Customer" Association="WEBprojectDBModel.FK_Order_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Product_Image_Products" Association="WEBprojectDBModel.FK_Product_Image_Products">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="Product_Image" EntitySet="Product_Image" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Products_Ref_Product_Type" Association="WEBprojectDBModel.FK_Products_Ref_Product_Type">
-            <End Role="Ref_Product_Type" EntitySet="Ref_Product_Type" />
-            <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          </EntityContainer>
-        <EntityType Name="Ref_Product_Type">
+        </EntityContainer>
+        <EntityType Name="Customer">
           <Key>
-            <PropertyRef Name="product_type_code" />
+            <PropertyRef Name="customer_id" />
           </Key>
-          <Property Name="product_type_code" Type="Byte" Nullable="false" />
-          <Property Name="product_parent_type_code" Type="Byte" />
-          <Property Name="product_type_description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Ref_Product_Type1" Relationship="WEBprojectDBModel.FK_Ref_Product_Type_Ref_Product_Type" FromRole="Ref_Product_Type" ToRole="Ref_Product_Type1" />
-          <NavigationProperty Name="Ref_Product_Type2" Relationship="WEBprojectDBModel.FK_Ref_Product_Type_Ref_Product_Type" FromRole="Ref_Product_Type1" ToRole="Ref_Product_Type" />
-          <NavigationProperty Name="Products" Relationship="WEBprojectDBModel.FK_Products_Ref_Product_Type" FromRole="Ref_Product_Type" ToRole="Products" />
+          <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="first_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address_line_1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer_Payment_Methods" Relationship="WEBprojectDBModel.FK_Customer_Payment_Methods_Customer" FromRole="Customer" ToRole="Customer_Payment_Methods" />
+          <NavigationProperty Name="Order" Relationship="WEBprojectDBModel.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
         </EntityType>
-        <Association Name="FK_Ref_Product_Type_Ref_Product_Type">
-          <End Type="WEBprojectDBModel.Ref_Product_Type" Role="Ref_Product_Type" Multiplicity="0..1" />
-          <End Type="WEBprojectDBModel.Ref_Product_Type" Role="Ref_Product_Type1" Multiplicity="*" />
+        <Association Name="FK_Customer_Payment_Methods_Customer">
+          <End Type="WEBprojectDBModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="WEBprojectDBModel.Customer_Payment_Methods" Role="Customer_Payment_Methods" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Ref_Product_Type">
-              <PropertyRef Name="product_type_code" />
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
             </Principal>
-            <Dependent Role="Ref_Product_Type1">
-              <PropertyRef Name="product_parent_type_code" />
+            <Dependent Role="Customer_Payment_Methods">
+              <PropertyRef Name="customer_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Product_Image">
-          <Key>
-            <PropertyRef Name="image_id" />
-          </Key>
-          <Property Name="image_id" Type="Int32" Nullable="false" />
-          <Property Name="product_id" Type="Int32" Nullable="false" />
-          <Property Name="image_url" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Products" Relationship="WEBprojectDBModel.FK_Product_Image_Products" FromRole="Product_Image" ToRole="Products" />
-        </EntityType>
-        <EntityType Name="Products">
-          <Key>
-            <PropertyRef Name="product_id" />
-          </Key>
-          <Property Name="product_id" Type="Int32" Nullable="false" />
-          <Property Name="product_type_code" Type="Byte" Nullable="false" />
-          <Property Name="product_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="product_size" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="product_color" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="special_offer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Order_Items" Relationship="WEBprojectDBModel.FK_Order_Items_Products" FromRole="Products" ToRole="Order_Items" />
-          <NavigationProperty Name="Product_Image" Relationship="WEBprojectDBModel.FK_Product_Image_Products" FromRole="Products" ToRole="Product_Image" />
-          <NavigationProperty Name="Ref_Product_Type" Relationship="WEBprojectDBModel.FK_Products_Ref_Product_Type" FromRole="Products" ToRole="Ref_Product_Type" />
-        </EntityType>
-        <Association Name="FK_Order_Items_Products">
-          <End Type="WEBprojectDBModel.Products" Role="Products" Multiplicity="1" />
-          <End Type="WEBprojectDBModel.Order_Items" Role="Order_Items" Multiplicity="*" />
+        <Association Name="FK_Order_Customer">
+          <End Type="WEBprojectDBModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="WEBprojectDBModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="product_id" />
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
             </Principal>
-            <Dependent Role="Order_Items">
-              <PropertyRef Name="product_id" />
+            <Dependent Role="Order">
+              <PropertyRef Name="customer_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Product_Image_Products">
-          <End Type="WEBprojectDBModel.Products" Role="Products" Multiplicity="1" />
-          <End Type="WEBprojectDBModel.Product_Image" Role="Product_Image" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="product_id" />
-            </Principal>
-            <Dependent Role="Product_Image">
-              <PropertyRef Name="product_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Products_Ref_Product_Type">
-          <End Type="WEBprojectDBModel.Ref_Product_Type" Role="Ref_Product_Type" Multiplicity="1" />
-          <End Type="WEBprojectDBModel.Products" Role="Products" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ref_Product_Type">
-              <PropertyRef Name="product_type_code" />
-            </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="product_type_code" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        </Schema>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="WEBprojectDBModelStoreContainer" CdmEntityContainer="WEBprojectDBEntities">
-          <EntitySetMapping Name="Customer">
-            <EntityTypeMapping TypeName="WEBprojectDBModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="first_name" ColumnName="first_name" />
-                <ScalarProperty Name="last_name" ColumnName="last_name" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
-                <ScalarProperty Name="address_line_1" ColumnName="address_line_1" />
-                <ScalarProperty Name="address_line_2" ColumnName="address_line_2" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="country" ColumnName="country" />
-                <ScalarProperty Name="zip_code" ColumnName="zip_code" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Customer_Payment_Methods">
             <EntityTypeMapping TypeName="WEBprojectDBModel.Customer_Payment_Methods">
               <MappingFragment StoreEntitySet="Customer_Payment_Methods">
@@ -915,6 +890,29 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Product_Image">
+            <EntityTypeMapping TypeName="WEBprojectDBModel.Product_Image">
+              <MappingFragment StoreEntitySet="Product_Image">
+                <ScalarProperty Name="image_id" ColumnName="image_id" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="image_url" ColumnName="image_url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="WEBprojectDBModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="product_type_code" ColumnName="product_type_code" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="product_size" ColumnName="product_size" />
+                <ScalarProperty Name="product_color" ColumnName="product_color" />
+                <ScalarProperty Name="special_offer" ColumnName="special_offer" />
+                <ScalarProperty Name="product_description" ColumnName="product_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Ref_Invoice_Status_Codes">
             <EntityTypeMapping TypeName="WEBprojectDBModel.Ref_Invoice_Status_Codes">
               <MappingFragment StoreEntitySet="Ref_Invoice_Status_Codes">
@@ -947,6 +945,15 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Ref_Product_Type">
+            <EntityTypeMapping TypeName="WEBprojectDBModel.Ref_Product_Type">
+              <MappingFragment StoreEntitySet="Ref_Product_Type">
+                <ScalarProperty Name="product_type_code" ColumnName="product_type_code" />
+                <ScalarProperty Name="product_parent_type_code" ColumnName="product_parent_type_code" />
+                <ScalarProperty Name="product_type_description" ColumnName="product_type_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Shipments">
             <EntityTypeMapping TypeName="WEBprojectDBModel.Shipments">
               <MappingFragment StoreEntitySet="Shipments">
@@ -967,39 +974,20 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
               <ScalarProperty Name="shipment_id" ColumnName="shipment_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Ref_Product_Type">
-            <EntityTypeMapping TypeName="WEBprojectDBModel.Ref_Product_Type">
-              <MappingFragment StoreEntitySet="Ref_Product_Type">
-                <ScalarProperty Name="product_type_description" ColumnName="product_type_description" />
-                <ScalarProperty Name="product_parent_type_code" ColumnName="product_parent_type_code" />
-                <ScalarProperty Name="product_type_code" ColumnName="product_type_code" />
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="WEBprojectDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="address_line_1" ColumnName="address_line_1" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Product_Image">
-            <EntityTypeMapping TypeName="WEBprojectDBModel.Product_Image">
-              <MappingFragment StoreEntitySet="Product_Image">
-                <ScalarProperty Name="image_url" ColumnName="image_url" />
-                <ScalarProperty Name="product_id" ColumnName="product_id" />
-                <ScalarProperty Name="image_id" ColumnName="image_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="WEBprojectDBModel.Products">
-              <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="product_description" ColumnName="product_description" />
-                <ScalarProperty Name="special_offer" ColumnName="special_offer" />
-                <ScalarProperty Name="product_color" ColumnName="product_color" />
-                <ScalarProperty Name="product_size" ColumnName="product_size" />
-                <ScalarProperty Name="product_price" ColumnName="product_price" />
-                <ScalarProperty Name="product_name" ColumnName="product_name" />
-                <ScalarProperty Name="product_type_code" ColumnName="product_type_code" />
-                <ScalarProperty Name="product_id" ColumnName="product_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          </EntityContainerMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

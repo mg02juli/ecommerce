@@ -17,8 +17,8 @@ namespace Ecommerce.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ref_Product_Type()
         {
-            this.Ref_Product_Type1 = new HashSet<Ref_Product_Type>();
             this.Products = new HashSet<Products>();
+            this.Ref_Product_Type1 = new HashSet<Ref_Product_Type>();
         }
     
         public byte product_type_code { get; set; }
@@ -26,9 +26,9 @@ namespace Ecommerce.Models
         public string product_type_description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Products> Products { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ref_Product_Type> Ref_Product_Type1 { get; set; }
         public virtual Ref_Product_Type Ref_Product_Type2 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products> Products { get; set; }
     }
 }

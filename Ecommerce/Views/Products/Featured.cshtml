@@ -1,0 +1,20 @@
+﻿<div class="other-products">
+    <div class="container">
+        <h3 class="like text-center">Featured Collection</h3>
+        <ul id="flexiselDemo3">
+                @foreach (var product in ViewBag.products)
+                {
+                    <li>
+                        <a href="@Url.Action("Single", "Products", new { id= product.product_id })"><img src="@Url.Content(product.Product_Image[0].image_url)" class="img-responsive" alt="" /></a>
+                        <div class="product liked-product simpleCart_shelfItem">
+                            <a class="like_name"href="@Url.Action("Single", "Products", new { id= product.product_id })">@product.product_name</a>
+                            <p><a class="item_add" href="#"><i></i> <span class=" item_price">$@product.product_price</span></a></p>
+                        </div>
+                    </li>
+                }
+        </ul>
+
+
+    </div>
+</div>
+

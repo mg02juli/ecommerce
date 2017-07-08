@@ -1,0 +1,21 @@
+﻿
+<div class="products-grid">
+    <header>
+        <h3 class="head text-center">@ViewBag.category</h3>
+    </header>
+
+
+    @foreach (var product in ViewBag.products)
+    {
+        <div class="col-md-4 product simpleCart_shelfItem text-center">
+            <a href="@Url.Action("Single", "Products", new { id= product.product_id })"><img src="@Url.Content(product.Product_Image[0].image_url)" alt=""></a>
+            <div class="mask">
+                <a href="@Url.Action("Single", "Products", new { id= product.product_id })">Quick View</a>
+            </div>
+            <a class="product_name" href="@Url.Action("Single", "Products", new { id= product.product_id })">@product.product_name</a>
+            <p><a class="item_add" href="#"><i class="glyphicon glyphicon-shopping-cart"></i> <span class="item_price">@product.product_price</span></a></p>
+        </div>
+    }
+    <div class="clearfix"></div>
+</div>
+

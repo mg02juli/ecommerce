@@ -18,23 +18,5 @@ namespace Ecommerce.Controllers
             return PartialView("~/Views/Shared/Menu.cshtml");
 
         }
-
-        public ActionResult Products() {
-
-            List<Products> productList = DBEntities.Products.ToList();
-            ViewBag.products = new List<Models.Products>(
-                            productList.Select(x => new Models.Products
-                            {
-                                product_id = x.product_id,
-                                product_name = x.product_name,
-                                product_price = x.product_price,
-                                Product_Image = x.Product_Image.Take(1).ToList(),
-                            })
-                            .Take(9)
-                            .ToList());
-
-            ViewBag.category = "Latest Products";
-            return PartialView("~/Views/Shared/_Products.cshtml");
-        }
     }
 }

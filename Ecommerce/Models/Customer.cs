@@ -11,6 +11,7 @@ namespace Ecommerce.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Customer
     {
@@ -20,19 +21,27 @@ namespace Ecommerce.Models
             this.Customer_Payment_Methods = new HashSet<Customer_Payment_Methods>();
             this.Order = new HashSet<Order>();
         }
-    
+
         public int customer_id { get; set; }
+        [Required(ErrorMessage = "Please enter email address", AllowEmptyStrings = false)]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string name { get; set; }
+        [Required(ErrorMessage = "Please enter first name", AllowEmptyStrings = false)]
         public string first_name { get; set; }
+        [Required(ErrorMessage = "Please enter last name", AllowEmptyStrings = false)]
         public string last_name { get; set; }
+        [Required(ErrorMessage = "Please enter password", AllowEmptyStrings = false)]
+        [StringLength(50, ErrorMessage = "Password lengh should be atleast 8 character", MinimumLength = 8)]
         public string password { get; set; }
-        public Nullable<decimal> phone_number { get; set; }
+        [Required(ErrorMessage = "Please confirm password", AllowEmptyStrings = false)]
+        [Compare("password", ErrorMessage = "Password doesn't match")]
+        public string cnf_password { get; set; }
+        [Required(ErrorMessage = "Please enter phone number", AllowEmptyStrings = false)]
+        [StringLength(20, ErrorMessage = "minimum 8 digit", MinimumLength = 8)]
+        public string phone_number { get; set; }
+        [Required(ErrorMessage = "Please enter home address", AllowEmptyStrings = false)]
         public string address_line_1 { get; set; }
-        public string address_line_2 { get; set; }
-        public string city { get; set; }
-        public string country { get; set; }
-        public decimal zip_code { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer_Payment_Methods> Customer_Payment_Methods { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

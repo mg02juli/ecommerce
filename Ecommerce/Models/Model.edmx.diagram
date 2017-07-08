@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="83074304da934c40ae401de7ed315120" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="WEBprojectDBModel.Customer" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+      <Diagram DiagramId="b0b62896a2444623857f33ca3a18a6da" Name="Diagram1">
         <EntityTypeShape EntityType="WEBprojectDBModel.Customer_Payment_Methods" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WEBprojectDBModel.Invoices" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WEBprojectDBModel.Order" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WEBprojectDBModel.Order_Items" Width="1.5" PointX="11.25" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WEBprojectDBModel.Payments" Width="1.5" PointX="10.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBprojectDBModel.Product_Image" Width="1.5" PointX="11.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBprojectDBModel.Products" Width="1.5" PointX="9" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="WEBprojectDBModel.Ref_Invoice_Status_Codes" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="WEBprojectDBModel.Ref_Order_Item_Status_Codes" Width="1.5" PointX="9" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WEBprojectDBModel.Ref_Order_Status_Codes" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="WEBprojectDBModel.Ref_Payment_Methods" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBprojectDBModel.Ref_Payment_Methods" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBprojectDBModel.Ref_Product_Type" Width="1.5" PointX="6.75" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WEBprojectDBModel.Shipments" Width="1.5" PointX="13.5" PointY="4.5" IsExpanded="true" />
-        <AssociationConnector Association="WEBprojectDBModel.FK_Customer_Payment_Methods_Customer" ManuallyRouted="false" />
-        <AssociationConnector Association="WEBprojectDBModel.FK_Order_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="WEBprojectDBModel.FK_Customer_Payment_Methods_Ref_Payment_Methods" ManuallyRouted="false" />
         <AssociationConnector Association="WEBprojectDBModel.FK_Invoices_Order" ManuallyRouted="false" />
         <AssociationConnector Association="WEBprojectDBModel.FK_Invoices_Ref_Invoice_Status_Codes" ManuallyRouted="false" />
@@ -25,16 +25,16 @@
         <AssociationConnector Association="WEBprojectDBModel.FK_Order_Items_Order" ManuallyRouted="false" />
         <AssociationConnector Association="WEBprojectDBModel.FK_Order_Ref_Order_Status_Codes" ManuallyRouted="false" />
         <AssociationConnector Association="WEBprojectDBModel.FK_Shipments_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBprojectDBModel.FK_Order_Items_Products" ManuallyRouted="false" />
         <AssociationConnector Association="WEBprojectDBModel.FK_Order_Items_Ref_Order_Item_Status_Codes" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBprojectDBModel.FK_Product_Image_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBprojectDBModel.FK_Products_Ref_Product_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBprojectDBModel.FK_Ref_Product_Type_Ref_Product_Type" ManuallyRouted="false" />
         <AssociationConnector Association="WEBprojectDBModel.Shipment_Items" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="WEBprojectDBModel.Ref_Product_Type" Width="1.5" PointX="0.75" PointY="9.5" />
-        <AssociationConnector Association="WEBprojectDBModel.FK_Ref_Product_Type_Ref_Product_Type" />
-        <EntityTypeShape EntityType="WEBprojectDBModel.Product_Image" Width="1.5" PointX="5.25" PointY="9.75" />
-        <EntityTypeShape EntityType="WEBprojectDBModel.Products" Width="1.5" PointX="3" PointY="9" />
-        <AssociationConnector Association="WEBprojectDBModel.FK_Order_Items_Products" />
-        <AssociationConnector Association="WEBprojectDBModel.FK_Product_Image_Products" />
-        <AssociationConnector Association="WEBprojectDBModel.FK_Products_Ref_Product_Type" />
-        </Diagram>
+        <EntityTypeShape EntityType="WEBprojectDBModel.Customer" Width="1.5" PointX="0.75" PointY="4.375" />
+        <AssociationConnector Association="WEBprojectDBModel.FK_Customer_Payment_Methods_Customer" />
+        <AssociationConnector Association="WEBprojectDBModel.FK_Order_Customer" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

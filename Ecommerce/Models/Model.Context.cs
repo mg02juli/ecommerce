@@ -25,19 +25,19 @@ namespace Ecommerce.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<Customer_Payment_Methods> Customer_Payment_Methods { get; set; }
         public virtual DbSet<Invoices> Invoices { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Order_Items> Order_Items { get; set; }
         public virtual DbSet<Payments> Payments { get; set; }
+        public virtual DbSet<Product_Image> Product_Image { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Ref_Invoice_Status_Codes> Ref_Invoice_Status_Codes { get; set; }
         public virtual DbSet<Ref_Order_Item_Status_Codes> Ref_Order_Item_Status_Codes { get; set; }
         public virtual DbSet<Ref_Order_Status_Codes> Ref_Order_Status_Codes { get; set; }
         public virtual DbSet<Ref_Payment_Methods> Ref_Payment_Methods { get; set; }
-        public virtual DbSet<Shipments> Shipments { get; set; }
         public virtual DbSet<Ref_Product_Type> Ref_Product_Type { get; set; }
-        public virtual DbSet<Product_Image> Product_Image { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<Shipments> Shipments { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
     }
 }

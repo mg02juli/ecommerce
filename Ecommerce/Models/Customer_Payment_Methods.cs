@@ -18,7 +18,7 @@ namespace Ecommerce.Models
         public int customer_id { get; set; }
         public byte payment_method_code { get; set; }
     
-        public virtual Customer Customer { get; set; }
         public virtual Ref_Payment_Methods Ref_Payment_Methods { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

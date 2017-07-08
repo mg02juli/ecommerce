@@ -28,9 +28,9 @@ namespace Ecommerce.Models
         public decimal order_item_price { get; set; }
     
         public virtual Order Order { get; set; }
+        public virtual Products Products { get; set; }
         public virtual Ref_Order_Item_Status_Codes Ref_Order_Item_Status_Codes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shipments> Shipments { get; set; }
-        public virtual Products Products { get; set; }
     }
 }
