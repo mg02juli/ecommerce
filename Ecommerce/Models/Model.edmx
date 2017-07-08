@@ -10,12 +10,14 @@
             <PropertyRef Name="customer_id" />
           </Key>
           <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="emailID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="first_name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="phone_number" Type="nvarchar" MaxLength="50" />
           <Property Name="address_line_1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="is_email_verified" Type="bit" Nullable="false" />
+          <Property Name="activation_code" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="Customer_Payment_Methods">
           <Key>
@@ -792,18 +794,20 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="customer_id" />
           </Key>
           <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="emailID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="first_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="address_line_1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_email_verified" Type="Boolean" Nullable="false" />
+          <Property Name="activation_code" Type="Guid" Nullable="false" />
           <NavigationProperty Name="Customer_Payment_Methods" Relationship="WEBprojectDBModel.FK_Customer_Payment_Methods_Customer" FromRole="Customer" ToRole="Customer_Payment_Methods" />
           <NavigationProperty Name="Order" Relationship="WEBprojectDBModel.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
         </EntityType>
@@ -831,7 +835,7 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -977,12 +981,14 @@ warning 6002: The table/view 'WEBprojectDB.dbo.Shipment_Items' does not have a p
           <EntitySetMapping Name="Customer">
             <EntityTypeMapping TypeName="WEBprojectDBModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="activation_code" ColumnName="activation_code" />
+                <ScalarProperty Name="is_email_verified" ColumnName="is_email_verified" />
                 <ScalarProperty Name="address_line_1" ColumnName="address_line_1" />
                 <ScalarProperty Name="phone_number" ColumnName="phone_number" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="last_name" ColumnName="last_name" />
                 <ScalarProperty Name="first_name" ColumnName="first_name" />
-                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="emailID" ColumnName="emailID" />
                 <ScalarProperty Name="customer_id" ColumnName="customer_id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -27,6 +27,7 @@
                     <p>If you have previously registered with us, <a href="@Url.Action("Index","Home")">click here</a></p>
                     @using (Html.BeginForm("Register", "User", FormMethod.Post))
                     {
+                        @Html.AntiForgeryToken()
                         <ul>
                             <li class="text-info">First Name: </li>
                             <li class="text-info">
@@ -48,10 +49,11 @@
                         <ul>
                             <li class="text-info">Email: </li>
                             <li class="text-info">
-                                @Html.ValidationMessageFor(a => a.name, null, new { style = "color:red" })
+                                @Html.ValidationMessageFor(a => a.emailID, null, new { style = "color:red" })
+                                @Html.ValidationMessage("EmailExist", new { style = "color:red" })
                                 </li>
 <li>
-                                @Html.TextBoxFor(model => model.name)
+                                @Html.TextBoxFor(model => model.emailID)
                             </li>
                         </ul>
                         <ul>

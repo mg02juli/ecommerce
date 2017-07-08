@@ -11,7 +11,7 @@ namespace Ecommerce.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class Products
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,8 +24,6 @@ namespace Ecommerce.Models
         public int product_id { get; set; }
         public byte product_type_code { get; set; }
         public string product_name { get; set; }
-        // [DisplayFormat(DataFormatString = "{0:C0}")]
-        //[DataType(DataType.Currency)]
         public decimal product_price { get; set; }
         public string product_size { get; set; }
         public string product_color { get; set; }

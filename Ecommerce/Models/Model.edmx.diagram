@@ -31,10 +31,10 @@
         <AssociationConnector Association="WEBprojectDBModel.FK_Products_Ref_Product_Type" ManuallyRouted="false" />
         <AssociationConnector Association="WEBprojectDBModel.FK_Ref_Product_Type_Ref_Product_Type" ManuallyRouted="false" />
         <AssociationConnector Association="WEBprojectDBModel.Shipment_Items" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="WEBprojectDBModel.Customer" Width="1.5" PointX="0.75" PointY="4.375" />
+        <EntityTypeShape EntityType="WEBprojectDBModel.Customer" Width="1.5" PointX="0.75" PointY="5.125" />
         <AssociationConnector Association="WEBprojectDBModel.FK_Customer_Payment_Methods_Customer" />
         <AssociationConnector Association="WEBprojectDBModel.FK_Order_Customer" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
