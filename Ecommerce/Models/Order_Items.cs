@@ -24,7 +24,7 @@ namespace Ecommerce.Models
         public int product_id { get; set; }
         public int order_id { get; set; }
         public byte order_item_status_code { get; set; }
-        public byte order_item_quantity { get; set; }
+        public int order_item_quantity { get; set; }
         public decimal order_item_price { get; set; }
     
         public virtual Order Order { get; set; }

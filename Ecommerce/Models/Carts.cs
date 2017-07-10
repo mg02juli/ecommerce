@@ -12,13 +12,14 @@ namespace Ecommerce.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer_Payment_Methods
+    public partial class Carts
     {
-        public int customer_payment_id { get; set; }
-        public int customer_id { get; set; }
-        public byte payment_method_code { get; set; }
+        public int cart_id { get; set; }
+        public string identifier { get; set; }
+        public int product_id { get; set; }
+        public int quantity { get; set; }
+        public System.DateTime date_created { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual Ref_Payment_Methods Ref_Payment_Methods { get; set; }
+        public virtual Products Products { get; set; }
     }
 }

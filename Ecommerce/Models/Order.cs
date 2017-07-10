@@ -27,7 +27,9 @@ namespace Ecommerce.Models
         public byte order_status_code { get; set; }
         public System.DateTime date_order_placed { get; set; }
         public string order_details { get; set; }
+        public decimal order_total { get; set; }
     
+        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoices> Invoices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -35,6 +37,5 @@ namespace Ecommerce.Models
         public virtual Ref_Order_Status_Codes Ref_Order_Status_Codes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shipments> Shipments { get; set; }
-        public virtual Customer Customer { get; set; }
     }
 }

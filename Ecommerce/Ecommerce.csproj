@@ -151,11 +151,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Crypto.cs" />
+    <Compile Include="Models\Carts.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -200,7 +205,10 @@
     <Compile Include="Models\Product_Image.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\ViewModels\ShoppingCartRemoveVM.cs" />
+    <Compile Include="Models\ViewModels\ShoppingCartVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Ref_Invoice_Status_Codes.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -217,8 +225,6 @@
     <Compile Include="Models\Ref_Product_Type.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\CategoryRep.cs" />
-    <Compile Include="Repositories\ICategoryRep.cs" />
     <Compile Include="Models\Shipments.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -395,6 +401,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -432,13 +439,7 @@
     <Content Include="Views\User\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\User\Checkout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home\_Footer.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Products\Single.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -447,16 +448,7 @@
     <Content Include="Views\Shared\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Products\Products.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\SubLayout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Products\Latest.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Products\Featured.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\Model.edmx">
@@ -474,6 +466,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\InProgress.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cart\CartPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cart\Cart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

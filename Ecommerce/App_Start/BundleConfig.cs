@@ -22,7 +22,7 @@ namespace Ecommerce
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                                 "~/Scripts/jquery.min.js",
                                 "~/Scripts/bootstrap-3.1.1.min.js",
-                                "~/Scripts/simpleCart.min.js",
+                                //"~/Scripts/simpleCart.min.js",
                                 "~/Scripts/responsiveslides.min.js",
                                 "~/Scripts/jquery.flexisel.js",
                                 "~/Scripts/main.js"));

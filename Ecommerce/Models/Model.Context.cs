@@ -25,6 +25,7 @@ namespace Ecommerce.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<Customer_Payment_Methods> Customer_Payment_Methods { get; set; }
         public virtual DbSet<Invoices> Invoices { get; set; }
         public virtual DbSet<Order> Order { get; set; }
@@ -38,6 +39,6 @@ namespace Ecommerce.Models
         public virtual DbSet<Ref_Payment_Methods> Ref_Payment_Methods { get; set; }
         public virtual DbSet<Ref_Product_Type> Ref_Product_Type { get; set; }
         public virtual DbSet<Shipments> Shipments { get; set; }
-        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Carts> Carts { get; set; }
     }
 }

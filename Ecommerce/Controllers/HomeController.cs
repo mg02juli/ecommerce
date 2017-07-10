@@ -21,7 +21,7 @@ namespace Ecommerce.Controllers
 
         public ActionResult Contact()
         {
-            return View("Contact");
+            return View();
         }
         public ActionResult InProgress()
         {

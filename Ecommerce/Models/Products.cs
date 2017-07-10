@@ -19,6 +19,7 @@ namespace Ecommerce.Models
         {
             this.Order_Items = new HashSet<Order_Items>();
             this.Product_Image = new HashSet<Product_Image>();
+            this.Carts = new HashSet<Carts>();
         }
     
         public int product_id { get; set; }
@@ -34,6 +35,8 @@ namespace Ecommerce.Models
         public virtual ICollection<Order_Items> Order_Items { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product_Image> Product_Image { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Carts> Carts { get; set; }
         public virtual Ref_Product_Type Ref_Product_Type { get; set; }
     }
 }
